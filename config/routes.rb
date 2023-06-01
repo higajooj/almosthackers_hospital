@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :exams
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "exams#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :exams
 end
