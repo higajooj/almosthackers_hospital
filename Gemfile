@@ -25,6 +25,7 @@ group :development do
   gem "web-console"
   gem "spring"
   gem "ruby-lsp", require: false
+  gem "erb_lint", require: false
 end
 
 group :test do
