@@ -22,8 +22,7 @@ end
 
 group :development do
   gem "web-console"
-
-  # gem "spring"
+  gem "spring"
 end
 
 group :test do
