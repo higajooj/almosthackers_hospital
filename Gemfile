@@ -23,6 +23,7 @@ end
 group :development do
   gem "web-console"
   gem "spring"
+  gem "ruby-lsp", require: false
 end
 
 group :test do
