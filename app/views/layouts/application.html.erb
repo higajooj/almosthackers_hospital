@@ -10,6 +10,17 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li>Los Angeles General Medical Center</li>
+        <li><%= link_to "Exames", exams_path %></li>
+      </ul>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= current_user.email %></li>
+        <% end %>
+      </ul>
+    </nav>
     <main class="container">
       <%= yield %>
     </main>
