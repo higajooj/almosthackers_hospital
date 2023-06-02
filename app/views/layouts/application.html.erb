@@ -13,11 +13,12 @@
     <nav>
       <ul>
         <li>Los Angeles General Medical Center</li>
-        <li><%= link_to "Exames", exams_path %></li>
+        <li><%= link_to "Hospitais", hospitals_path %></li>
       </ul>
       <ul>
         <% if user_signed_in? %>
           <li><%= current_user.email %></li>
+          <li><%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete } %></li>
         <% end %>
       </ul>
     </nav>
