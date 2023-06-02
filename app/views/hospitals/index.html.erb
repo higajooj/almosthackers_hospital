@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Hospitals</h1>
-
 <div id="hospitals">
   <% @hospitals.each do |hospital| %>
-    <%= render hospital %>
-    <p>
-      <%= link_to "Show this hospital", hospital %>
-    </p>
+    <% if current_user.associated_at_hospital?(hospital) %>
+      <%= render hospital %>
+      <p>
+        <%= link_to "Show this hospital", hospital %>
+      </p>
+    <% end %>
   <% end %>
 </div>
-
 <%= link_to "New hospital", new_hospital_path %>
