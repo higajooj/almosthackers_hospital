@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_02_093920) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_02_180128) do
   create_table "exams", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "doctor_id", null: false
+    t.integer "pacient_id", null: false
+    t.integer "hospital_id", null: false
+    t.index ["hospital_id"], name: "index_exams_on_hospital_id"
   end
 
   create_table "hospital_user_associations", force: :cascade do |t|
@@ -50,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_093920) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "exams", "hospitals"
   add_foreign_key "hospital_user_associations", "hospitals"
   add_foreign_key "hospital_user_associations", "users"
 end
