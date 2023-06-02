@@ -11,7 +11,6 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
-gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
@@ -26,10 +25,4 @@ group :development do
   gem "spring"
   gem "ruby-lsp", require: false
   gem "erb_lint", require: false
-end
-
-group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
 end
