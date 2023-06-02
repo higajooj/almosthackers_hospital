@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :hospitals
-  root "exams#index"
+  root "hospitals#index"
 
   devise_for :users
 
