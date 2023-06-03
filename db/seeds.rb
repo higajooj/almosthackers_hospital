@@ -22,3 +22,7 @@ a7 = HospitalUserAssociation.create(hospital: hca, user: pedro, role: "doctor")
 a8 = HospitalUserAssociation.create(hospital: vha, user: joao, role: "pacient")
 a9 = HospitalUserAssociation.create(hospital: vha, user: marcio, role: "doctor")
 
+vha.exams.create({name: "exam test 1", description: "procedure X", doctor_id: marcio.id, pacient_id: joao.id})
+lagmc.exams.create({name: "exam test 2", description: "procedure Y", doctor_id: paulo.id, pacient_id: joao.id})
+lagmc.exams.create({name: "exam test 3", description: "procedure K", doctor_id: paulo.id, pacient_id: pedro.id})
+lagmc.exams.create({name: "exam test 4", description: "procedure Z", doctor_id: paulo.id, pacient_id: marcio.id})
