@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :hospital_user_associations
   has_many :hospitals, through: :hospital_user_associations
 
+  validates :name, presence: true
+  validates :phone_number, presence: true, phone: {types: :mobile}
+
   def self.doctors_at_hospital(hospital)
     HospitalUserAssociation.where(hospital_id: hospital.id, role: "doctor").map { |a| a.user }
   end
