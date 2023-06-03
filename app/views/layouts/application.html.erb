@@ -6,23 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>HospitalERP</li>
-        <li><%= link_to "Hospitais", hospitals_path %></li>
-      </ul>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= current_user.email %></li>
-          <li><%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete } %></li>
-        <% end %>
-      </ul>
-    </nav>
     <main class="container">
+      <nav>
+        <ul>
+          <li>HospitalERP</li>
+          <li><%= link_to "Hospitais", hospitals_path %></li>
+        </ul>
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= current_user.email %></li>
+            <li><%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+          <% end %>
+        </ul>
+      </nav>
       <%= yield %>
     </main>
   </body>
