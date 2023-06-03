@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @hospital %>
-
+<%= link_to "New exam", new_exam_path %>
+<% @exams.each do |exam| %>
+  <div>
+    <%= render exam %>
+    <p>
+      <%= link_to "Show this exam", exam %>
+    </p>
+  <% end %>
+</div>
 <div>
   <%= link_to "Edit this hospital", edit_hospital_path(@hospital) %> |
   <%= link_to "Back to hospitals", hospitals_path %>
-
   <%= button_to "Destroy this hospital", @hospital, method: :delete %>
 </div>
