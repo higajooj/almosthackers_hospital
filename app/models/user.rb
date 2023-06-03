@@ -4,6 +4,14 @@ class User < ApplicationRecord
   has_many :hospital_user_associations
   has_many :hospitals, through: :hospital_user_associations
 
+  def self.doctors_at_hospital(hospital)
+    HospitalUserAssociation.where(hospital_id: hospital.id, role: "doctor").map { |a| a.user }
+  end
+
+  def self.pacients_at_hospital(hospital)
+    HospitalUserAssociation.where(hospital_id: hospital.id, role: "pacient").map { |a| a.user }
+  end
+
   def associated_at_hospital?(hospital)
     hospital.users.find_by(id: id)
   end

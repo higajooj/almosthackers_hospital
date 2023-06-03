@@ -6,10 +6,10 @@ class HospitalsController < ApplicationController
   end
 
   def show
-    if current_user.doctor_at_hospital?(@hospital)
-      @exams = @hospital.exams
+    @exams = if current_user.doctor_at_hospital?(@hospital)
+      @hospital.exams
     else
-      @exams = current_user.pacient_exams_at_hospital(@hospital)
+      current_user.pacient_exams_at_hospital(@hospital)
     end
   end
 
@@ -24,6 +24,8 @@ class HospitalsController < ApplicationController
     @hospital = Hospital.new(hospital_params)
 
     if @hospital.save
+
+      @hospital.hospital_user_associations.create(user: current_user, role: "doctor")
       redirect_to hospital_url(@hospital), notice: "Hospital was successfully created."
     else
       render :new, status: :unprocessable_entity

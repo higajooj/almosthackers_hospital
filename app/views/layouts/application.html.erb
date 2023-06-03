@@ -13,8 +13,7 @@
     <main class="container">
       <nav>
         <ul>
-          <li>HospitalERP</li>
-          <li><%= link_to "Hospitais", hospitals_path %></li>
+          <li><%= link_to "HospitalERP", hospitals_path %></li>
         </ul>
         <ul>
           <% if user_signed_in? %>
@@ -23,6 +22,8 @@
           <% end %>
         </ul>
       </nav>
+      <p style="color: green"><%= notice %></p>
+      <p style="color: red"><%= alert %></p>
       <%= yield %>
     </main>
   </body>

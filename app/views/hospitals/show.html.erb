@@ -1,16 +1,23 @@
-<p style="color: green"><%= notice %></p>
-<%= render @hospital %>
-<%= link_to "New exam", new_exam_path %>
+<di id="<%= dom_id @hospital %>">
+  <strong>Name:</strong>
+  <span><%= @hospital.name %></span>
+  <% if current_user.doctor_at_hospital?(@hospital) %>
+    <%= link_to "(Editar)", edit_hospital_path(@hospital) %>
+  <% end %>
+  <p>Role: <%= current_user.role_at_hospital(@hospital) %></p>
+</div>
+<% if current_user.doctor_at_hospital?(@hospital) %>
+  <%= link_to "Novo exame", new_hospital_exam_path(@hospital) %>
+<% end %>
+<hr>
+<h4>Exames</h4>
 <% @exams.each do |exam| %>
   <div>
-    <%= render exam %>
-    <p>
-      <%= link_to "Show this exam", exam %>
-    </p>
+    <div id="<%= dom_id exam %>">
+      <p><%= link_to exam.name, hospital_exam_path(@hospital, exam) %></p>
+      <p>Doutor: <%= exam.doctor.name %></p>
+      <p>Paciente: <%= exam.pacient.name %></p>
+    </div>
+    <hr>
   <% end %>
-</div>
-<div>
-  <%= link_to "Edit this hospital", edit_hospital_path(@hospital) %> |
-  <%= link_to "Back to hospitals", hospitals_path %>
-  <%= button_to "Destroy this hospital", @hospital, method: :delete %>
 </div>
