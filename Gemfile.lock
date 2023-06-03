@@ -141,6 +141,7 @@ GEM
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
+    phonelib (0.8.1)
     prettier_print (1.2.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   devise
   erb_lint
   jsbundling-rails
+  phonelib
   puma (~> 5.0)
   rails (~> 7.0.5)
   redis (~> 4.0)
