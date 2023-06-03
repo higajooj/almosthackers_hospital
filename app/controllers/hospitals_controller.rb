@@ -2,10 +2,15 @@ class HospitalsController < ApplicationController
   before_action :set_hospital, only: %i[show edit update destroy]
 
   def index
-    @hospitals = Hospital.all
+    @hospitals = current_user.hospitals
   end
 
   def show
+    if current_user.doctor_at_hospital?(@hospital)
+      @exams = @hospital.exams
+    else
+      @exams = current_user.pacient_exams_at_hospital(@hospital)
+    end
   end
 
   def new
