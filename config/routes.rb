@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :hospitals
-  root "hospitals#index"
-
   devise_for :users
 
+  resources :hospitals
   resources :exams
+
+  root "hospitals#index"
 end
