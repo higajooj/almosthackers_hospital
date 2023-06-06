@@ -20,7 +20,7 @@ class User < ApplicationRecord
   end
 
   def role_at_hospital(hospital)
-    hospital_user_associations.find_by(hospital: hospital).role
+    hospital_user_associations.find_by(hospital: hospital)&.role || "none"
   end
 
   def doctor_at_hospital?(hospital)
