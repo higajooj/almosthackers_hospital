@@ -6,11 +6,8 @@ class HospitalsController < ApplicationController
   end
 
   def show
-    @exams = if current_user.doctor_at_hospital?(@hospital)
-      @hospital.exams
-    else
-      current_user.pacient_exams_at_hospital(@hospital)
-    end
+    @exams = current_user.doctor_at_hospital?(@hospital) ?
+      @hospital.exams : current_user.pacient_exams_at_hospital(@hospital)
   end
 
   def new
