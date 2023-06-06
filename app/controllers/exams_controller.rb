@@ -1,6 +1,7 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: %i[show edit update]
   before_action :set_hospital
+  load_and_authorize_resource
 
   def show
   end
